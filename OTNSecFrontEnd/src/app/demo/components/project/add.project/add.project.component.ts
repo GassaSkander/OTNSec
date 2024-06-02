@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService, SelectItem } from 'primeng/api';
+import { catchError, of, tap } from 'rxjs';
+import { ScriptService } from 'src/app/demo/service/script.service';
 
 @Component({
   selector: 'app-add.project',
@@ -10,15 +12,15 @@ import { MessageService, SelectItem } from 'primeng/api';
 })
 export class AddProjectComponent implements OnInit {
 
-  upload : boolean = false;
-  updated_upload : boolean = false;
+  upload: boolean = false;
+  updated_upload: boolean = false;
   uploadedFiles: any[] = [];
   value1: any;
   selectedDrop: SelectItem = { value: '' };
   cities: SelectItem[] = [];
 
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private scriptService: ScriptService) { }
 
   ngOnInit(): void {
     this.cities = [
@@ -46,4 +48,17 @@ export class AddProjectComponent implements OnInit {
     this.updated_upload = true;
   }
 
+  executeScript() {
+    this.scriptService.executeScript().pipe(
+      tap(res => {
+        alert("Script launched successfully");
+
+      }),
+      catchError(error => {
+        console.log(error);
+        alert('Script failed to launch');
+        return of(); // Returning an empty observable to gracefully handle the error
+      })
+    ).subscribe();
+  }
 }

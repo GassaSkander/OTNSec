@@ -5,6 +5,7 @@ const app = express()
 //? Routes
 const usersRoutes = require('./routes/user.route');
 const rolesRoutes = require('./routes/Api');
+const triggerRoutes = require('./routes/trigger.route');
 
 const db = require("./config/database");
 
@@ -21,6 +22,7 @@ app.use(cors(corsOptions));
 
 app.use('/users', usersRoutes);
 app.use('/roles', rolesRoutes);
+app.use('/scripts', triggerRoutes);
 
 
 
