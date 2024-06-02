@@ -1,0 +1,59 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <!-- <h4>Empty Page</h4>
+            <p>This is your empty page template to start building beautiful applications.</p> -->
+
+            <!-- Input text -->
+            <!-- <div class="field col-12 md:col-4">
+                <span class="p-float-label">
+                    <input type="text" id="inputtext" pInputText [(ngModel)]="value1">
+                    <label for="inputtext">InputText</label>
+                </span>
+            </div> -->
+            <!-- END Input text -->
+            <!-- File upload -->
+            <!-- <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" [multiple]="true"
+                accept="image/*" [maxFileSize]="1000000">
+                <ng-template pTemplate="content">
+                    <ul *ngIf="uploadedFiles.length">
+                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                    </ul>
+                </ng-template>
+            </p-fileUpload> -->
+            <!-- END File upload -->
+            <!-- Button -->
+            <!-- <button pbutton="" pripple="" label="Submit" class="p-element p-ripple mr-2 mb-2 p-button p-component"
+                ng-reflect-label="Submit"><span class="p-button-label">Submit</span><span class="p-ink"></span></button> -->
+            <!-- END Button -->
+
+            <h5>Ajouter un nouveau projet</h5>
+
+            <div class="field grid"><label htmlfor="name3" class="col-12 mb-2 md:col-2 md:mb-0">à partir de : </label>
+                <div class="col-12 md:col-10">
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedDrop" placeholder="Select a City"
+                        [showClear]="true" (ngModelChange)="onSelectedDropChange($event)"></p-dropdown>
+                </div>
+            </div>
+
+            <!-- File upload -->
+            <p-fileUpload *ngIf="upload" name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
+                [multiple]="true" [maxFileSize]="1000000">
+                <ng-template pTemplate="content">
+                    <ul *ngIf="uploadedFiles.length">
+                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                    </ul>
+                </ng-template>
+            </p-fileUpload>
+            <!-- END File upload -->
+
+            <div class="field grid" *ngIf="!upload && updated_upload"><label htmlfor="name3"
+                    class="col-12 mb-2 md:col-2 md:mb-0">Lien du projet :</label>
+                <div class="col-12 md:col-10"><input pinputtext="" id="name3" type="text"
+                        class="p-inputtext p-component p-element"></div>
+            </div>
+            <button pbutton="" pripple="" label="Submit" class="p-element p-ripple mr-2 mt-2 mb-2 p-button p-component"
+                ng-reflect-label="Submit"><span class="p-button-label">Submit</span><span class="p-ink"></span></button>
+        </div>
+    </div>
+</div>

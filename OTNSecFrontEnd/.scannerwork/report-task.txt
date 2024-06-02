@@ -1,0 +1,6 @@
+projectKey=otn_key
+serverUrl=http://192.168.1.11:9000
+serverVersion=9.6.1.59531
+dashboardUrl=http://192.168.1.11:9000/dashboard?id=otn_key
+ceTaskId=AY-ZGJO2LbhQY1pXAe_3
+ceTaskUrl=http://192.168.1.11:9000/api/ce/task?id=AY-ZGJO2LbhQY1pXAe_3
